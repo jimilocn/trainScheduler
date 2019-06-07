@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- used to make sure that page is standardized across all platforms and windows -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <!-- used for ease of placement of content within page and bootstrap buttons-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- used for basic styling within page -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <title>Cherry Blossom Express</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="jumbotron text-center">
+                    <h1 class="text-center">Cherry Blossom Express</h1>
+                    <h2 id="japan">こんにちは 今日は</h2>
+                    <h3 class="text-center">Explore the Island of Japan</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="card bg-light mb-3 text-center" style="max-width: 18rem;">
+                    <div class="card-header">Current Time</div>
+                    <div class="card-body">
+                        <p id="currentTime"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <!-- Current trains-->
+                <div class="card mb-4">
+                    <div class="card-header">Current Train Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover text-center" id='train-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">First Train</th>
+                                    <th scope="col">Frequency (in minutes)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes until arrival</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Add Train  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Train</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name-input">Train Name</label>
+                                <input class="form-control" id="train-name-input" placeholder="Oh Oh Osaka" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination-input">Destination</label>
+                                <input class="form-control" id="destination-input" placeholder="Osaka" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="start-input">First Train Time (HH:mm - military time)</label>
+                                <input class="form-control" id="start-input" placeholder="00:00" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency-input">Frequency (min)</label>
+                                <input class="form-control" id="frequency-input" placeholder="90" type="text">
+                            </div>
+                            <button class="btn btn-primary float-left" id="add-train-btn">Add</button>
+                            <button class="btn btn-primary float-left" id="update-train-btn">Update</button>
+                            <button class="btn btn-primary float-left" id="remove-train-btn">Remove</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <button class="btn btn-dark btn-xs play-button">
+                            Play Music</button>
+                        <button class="btn btn-dark btn-xs pause-button">
+                            Pause Music</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="./assets/javascript/app.js"></script>
+    <script src="./assets/javascript/petals.js"></script>
+
+</body>
+
+</html>

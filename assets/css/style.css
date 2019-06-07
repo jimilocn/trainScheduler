@@ -1,0 +1,54 @@
+Body {
+    background: url("../images/background.jpg");
+    background-repeat: repeat;
+}
+
+.container {
+    background: url("../images/cherryBlossom.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.jumbotron {
+    background-color: rgba(255, 192, 203, 0.801); 
+    color: rgb(66, 6, 6);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#japan {
+    font-weight: bolder;
+}
+
+.card {
+opacity: 0.9;
+}
+
+.card-body, .card-header, thead {
+    font-weight: bolder;
+    color: rgb(66, 6, 6);
+}
+
+.btn-primary {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#add-train-btn, #remove-train-btn, #update-train-btn {
+    background: #a1bd24;
+   color: rgb(66, 6, 6);
+   font-weight: bolder;
+}
+
+
+#add-train-btn:hover, #remove-train-btn:hover, #update-train-btn:hover {
+    transition: .5s;
+    opacity: 1;
+    background: #d0e673;
+}
+
+.falling {
+    z-index:99;
+
+}
