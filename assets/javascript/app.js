@@ -33,8 +33,9 @@ $(document).ready(function () { // Your web app's Firebase configuration
     // 2. Button for adding train
     $("#add-train-btn").on("click", function (event) {
         event.preventDefault();
+        $("tbody").empty();
         clearInterval(setIntervalId);
-        setInterval(displayTime, 10 * 1000);
+   
         // Grabs user input
         var trainName = $("#train-name-input").val().trim();
         var trainDestination = $("#destination-input").val().trim();
@@ -48,12 +49,13 @@ $(document).ready(function () { // Your web app's Firebase configuration
             start: trainStart,
             frequency: trainFrequency
         };
-        if (trainName.length > 0 && trainDestination.length > 0 && trainStart.length > 4 && trainFrequency.length > 0) {
+        if (trainName.length > 0 && trainDestination.length > 0 && trainStart.length > 0 && trainFrequency.length > 0) {
 
 
             // Uploads train data to the database
             database.ref().push(newTrain);
-           
+            $("tbody").empty();
+            displayTime();
 
         }
         // Logs everything to console
@@ -126,8 +128,8 @@ $(document).ready(function () { // Your web app's Firebase configuration
             // Create the new row
             var newRow = $("<tr>")
             var removeX = $("<td>");
-            removeX.attr("id", "delete")
-            removeX.attr("class", childSnapshot.key)
+            removeX.attr("class", "delete")
+            removeX.attr("data-key", childSnapshot.key)
             console.log("diffTime:" + diffTime)
             if (diffTime > 0) {
 
@@ -163,15 +165,16 @@ $(document).ready(function () { // Your web app's Firebase configuration
 
             console.log("this is key: " + childSnapshot.key)
 
-            // $("#delete").on("click", function () {
-            //     var snapshotKey = $(this).attr("class");
+            $(".delete").on("click", function () {
+                var snapshotKey = $(this).attr("data-key");
 
-            //     database.ref().remove(snapshotKey);
+                database.ref().child(snapshotKey).remove();
+              
 
-            //     displayTrain();
+                displayTrain();
 
-            //     console.log("Delete this key: ",snapshotKey);
-            // });
+                console.log("Delete this key: ",snapshotKey);
+            });
 
         });
     };
@@ -183,6 +186,7 @@ $(document).ready(function () { // Your web app's Firebase configuration
 
     function displayTime() {
         $("tbody").empty();
+        setInterval(displayTime, 10 * 1000);
         $("#currentTime").html("<h2>" + moment().format("hh:mm a") + "</h2>");
         displayTrain();
     };
