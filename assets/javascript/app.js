@@ -33,7 +33,7 @@ $(document).ready(function () { // Your web app's Firebase configuration
     // 2. Button for adding train
     $("#add-train-btn").on("click", function (event) {
         event.preventDefault();
-        $("tbody").empty();
+
         clearInterval(setIntervalId);
    
         // Grabs user input
@@ -76,10 +76,8 @@ $(document).ready(function () { // Your web app's Firebase configuration
     // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
     function displayTrain() {
 
-        $("tbody").empty();
-
         database.ref().on("child_added", function (childSnapshot) {
-            console.log(childSnapshot.val());
+
 
             // snapshot value called key childSnapshot.key
 
@@ -90,37 +88,33 @@ $(document).ready(function () { // Your web app's Firebase configuration
             var trainStart = childSnapshot.val().start;
             var trainFrequency = childSnapshot.val().frequency;
 
-            // train Info
-            console.log(trainName);
-            console.log(trainDestination);
-            console.log(trainStart);
-            console.log(trainFrequency);
+
 
             //   math for time until next train
             var firstTime = moment(trainStart, "HH:mm").format("hh:mm a");
-            console.log("First arrival: ", firstTime)
+
 
 
             var tFrequency = parseInt(trainFrequency);
-            console.log("train frequency:", tFrequency)
+
 
             // Current Time
             var currentTime = moment().format("HH:mm");
-            console.log("CURRENT TIME: " + currentTime);
+
 
 
             // Difference between the times
             var diffTime = moment().diff(moment(trainStart, "HH:mm"), "minutes");
             // var diffTime = (currentTime.diff(firstTime));
-            console.log("DIFFERENCE IN TIME: " + diffTime);
+
 
             // Time apart (remainder)
             var tRemainder = diffTime % tFrequency;
-            console.log("remainder: ", tRemainder);
+
 
             // Minute Until Train
             var tMinutesTillTrain = tFrequency - tRemainder;
-            console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
 
             // Next Train
             var nextTrain = moment().add(tMinutesTillTrain, "minutes").format("hh:mm a");
@@ -130,7 +124,7 @@ $(document).ready(function () { // Your web app's Firebase configuration
             var removeX = $("<td>");
             removeX.attr("class", "delete")
             removeX.attr("data-key", childSnapshot.key)
-            console.log("diffTime:" + diffTime)
+
             if (diffTime > 0) {
 
                 newRow.append(
@@ -163,21 +157,23 @@ $(document).ready(function () { // Your web app's Firebase configuration
 
             }
 
-            console.log("this is key: " + childSnapshot.key)
 
-            $(".delete").on("click", function () {
-                var snapshotKey = $(this).attr("data-key");
 
-                database.ref().child(snapshotKey).remove();
-              
 
-                displayTrain();
-
-                console.log("Delete this key: ",snapshotKey);
-            });
 
         });
     };
+
+    
+    $(document).on("click", ".delete", function () {
+        var snapshotKey = $(this).attr("data-key");
+
+        database.ref().child(snapshotKey).remove();
+      
+
+        displayTime();
+
+    });
 
     $("#currentTime").html("<h2>" + moment().format("hh:mm a") + "</h2>")
     displayTrain();
