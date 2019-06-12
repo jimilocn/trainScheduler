@@ -9,14 +9,11 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <!-- used for ease of placement of content within page and bootstrap buttons-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
     <!-- Moment.js Reference -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- used for basic styling within page -->
@@ -26,13 +23,10 @@
 </head>
 
 <body>
-
-
     <div class="container">
-
-
         <div class="row">
             <div class="col-sm-12">
+                <!-- jumbotron at top of page -->
                 <div class="jumbotron text-center">
                     <h1 class="text-center">Cherry Blossom Express</h1>
                     <h2 id="japan">こんにちは 今日は</h2>
@@ -44,6 +38,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
+                <!-- display current time -->
                 <div class="card bg-light mb-3 text-center" style="max-width: 18rem;">
                     <div class="card-header">Current Time</div>
                     <div class="card-body">
@@ -57,7 +52,6 @@
 
         <div class="row">
             <div class="col-sm-12">
-
                 <!-- Current trains-->
                 <div class="card mb-4">
                     <div class="card-header">Current Train Schedule</div>
@@ -109,11 +103,10 @@
                                 <input class="form-control" id="frequency-input" placeholder="90" type="text">
                             </div>
                             <button class="btn btn-primary float-left" id="add-train-btn">Add</button>
-                            <!-- <button class="btn btn-primary float-left" id="update-train-btn">Update</button>
-                            <button class="btn btn-primary float-left" id="remove-train-btn">Remove</button> -->
                         </form>
                     </div>
                     <hr>
+                    <!-- play and stop music -->
                     <div class="card-body">
                         <button class="btn btn-dark btn-xs play-button">
                             Play Music</button>
@@ -123,8 +116,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <script src="./assets/javascript/app.js"></script>

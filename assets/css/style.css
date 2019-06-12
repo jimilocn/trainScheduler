@@ -35,20 +35,15 @@ opacity: 0.9;
     margin-right: 5px;
 }
 
-#add-train-btn, #remove-train-btn, #update-train-btn {
+#add-train-btn {
     background: #a1bd24;
    color: rgb(66, 6, 6);
    font-weight: bolder;
 }
 
 
-#add-train-btn:hover, #remove-train-btn:hover, #update-train-btn:hover {
+#add-train-btn:hover {
     transition: .5s;
     opacity: 1;
     background: #d0e673;
-}
-
-.falling {
-    z-index:99;
-
 }

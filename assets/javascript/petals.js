@@ -2,25 +2,26 @@
 // Snow.js - v0.0.3
 // kurisubrooks.com
 */
+// code is taken from https://www.cssscript.com/minimalist-falling-snow-effect-with-pure-javascript-snow-js/
 
 // Amount of Snowflakes
-var snowMax = 35;
+var snowMax = 40;
 
 // Snowflake Colours
-var snowColor = ["#efadae", "#f2dfe4", "#df9495"];
+var snowColor = ["#efadae", "#f2dfe4", "#df9495", "#b82c3f"];
 
 // Snow Entity
 var snowEntity = "&#10048;";
 
 
 // Falling Velocity
-var snowSpeed = 0.75;
+var snowSpeed = 0.65;
 
 // Minimum Flake Size
-var snowMinSize = 8;
+var snowMinSize = 6;
 
 // Maximum Flake Size
-var snowMaxSize = 55;
+var snowMaxSize = 58;
 
 // Refresh Rate (in milliseconds)
 var snowRefresh = 50;
