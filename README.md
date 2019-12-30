@@ -1,4 +1,4 @@
-# trainScheduler
+# trainScheduler <img src="/train.PNG"/>
 
 Try out the site live here: https://jimilocn.github.io/trainScheduler/
 github repo: https://github.com/jimilocn/trainScheduler
